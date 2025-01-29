@@ -91,7 +91,7 @@ export const projects = [
             "/stream.svg",
             "/c.svg",
         ],
-        link: "/ui.yoom.com",
+        link: "https://apex-legends1.gitlab.io/paper-stonks/",
     },
     {
         id: 3,
