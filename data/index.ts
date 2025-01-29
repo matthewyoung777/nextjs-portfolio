@@ -119,29 +119,16 @@ export const projects = [
 
 export const testimonials = [
     {
-        quote: "Collaborating with Adrian was an absolute pleasure. His professionalism, promptness, and dedication to delivering exceptional results were evident throughout our project. Adrian's enthusiasm for every facet of development truly stands out. If you're seeking to elevate your website and elevate your brand, Adrian is the ideal partner.",
-        name: "Michael Johnson",
-        title: "Director of AlphaStream Technologies",
+        quote: "I enjoyed working with Matthew in Cruise's R & D Fleet Ops. Matthew was part of an elite group of R & D testers that were trained in Mapping. To be selected for Mapping, you have to be technically savvy, have dependable time management skills, and have solid communication skills when slacking with techs and engineers. You have to get results. Matthew had all those plus he is pleasant to work with. Highly recommended!",
+        name: "Marisa Lomask",
+        title: "Technical Project Manager at Cruise",
+        img: "/profile.svg",
     },
     {
-        quote: "Collaborating with Adrian was an absolute pleasure. His professionalism, promptness, and dedication to delivering exceptional results were evident throughout our project. Adrian's enthusiasm for every facet of development truly stands out. If you're seeking to elevate your website and elevate your brand, Adrian is the ideal partner.",
-        name: "Michael Johnson",
-        title: "Director of AlphaStream Technologies",
-    },
-    {
-        quote: "Collaborating with Adrian was an absolute pleasure. His professionalism, promptness, and dedication to delivering exceptional results were evident throughout our project. Adrian's enthusiasm for every facet of development truly stands out. If you're seeking to elevate your website and elevate your brand, Adrian is the ideal partner.",
-        name: "Michael Johnson",
-        title: "Director of AlphaStream Technologies",
-    },
-    {
-        quote: "Collaborating with Adrian was an absolute pleasure. His professionalism, promptness, and dedication to delivering exceptional results were evident throughout our project. Adrian's enthusiasm for every facet of development truly stands out. If you're seeking to elevate your website and elevate your brand, Adrian is the ideal partner.",
-        name: "Michael Johnson",
-        title: "Director of AlphaStream Technologies",
-    },
-    {
-        quote: "Collaborating with Adrian was an absolute pleasure. His professionalism, promptness, and dedication to delivering exceptional results were evident throughout our project. Adrian's enthusiasm for every facet of development truly stands out. If you're seeking to elevate your website and elevate your brand, Adrian is the ideal partner.",
-        name: "Michael Johnson",
-        title: "Director of AlphaStream Technologies",
+        quote: "As a team member, Matt was essential in helping us plan the project out using figma and excalidraw which was important in helping us understand how the project was meant to be built. Matthew was also frequent in giving us fresh ideas and solutions to make our project stand out from the rest. Even after the completion our project, Matthew was consistent to add more features and front-end development post-deployment which shows his nature to go above and beyond the set goal. I am very confident that Matthew will bring these skills to any team that he joins!",
+        name: "Leo Shon",
+        title: "Software Engineer at Rendr",
+        img: "/leo.png",
     },
 ];
 
