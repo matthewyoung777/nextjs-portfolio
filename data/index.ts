@@ -168,21 +168,21 @@ export const companies = [
 export const workExperience = [
     {
         id: 1,
-        title: "Frontend Engineer Intern",
-        desc: "Assisted in the development of a web-based platform using React.js, enhancing interactivity.",
+        title: "AI Engineer Intern - MiniMe AI",
+        desc: "Assisted in the development a RAG pipeline to enhance LLM retrieval and response accuracy.",
         className: "md:col-span-2",
         thumbnail: "/exp1.svg",
     },
     {
         id: 2,
-        title: "Mobile App Dev - JSM Tech",
+        title: "Full Stack Software Engineer Intern - Networky.ai",
         desc: "Designed and developed mobile app for both iOS & Android platforms using React Native.",
         className: "md:col-span-2", // change to md:col-span-2
         thumbnail: "/exp2.svg",
     },
     {
         id: 3,
-        title: "Freelance App Dev Project",
+        title: "Founding Engineer",
         desc: "Led the dev of a mobile app for a client, from initial concept to deployment on app stores.",
         className: "md:col-span-2", // change to md:col-span-2
         thumbnail: "/exp3.svg",
@@ -195,6 +195,8 @@ export const workExperience = [
         thumbnail: "/exp4.svg",
     },
 ];
+
+export const timelineData = [];
 
 export const socialMedia = [
     {
