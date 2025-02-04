@@ -9,6 +9,18 @@ const Experience = () => {
             <h1 className="heading">
                 My <span className="text-purple">work experience</span>
             </h1>
+            <div className="text">
+                <p>
+                    <a
+                        href="/Matthew Young Resume.pdf"
+                        target="_blank"
+                        className="button"
+                        download
+                    >
+                        <i className="fa fa-download">Download Resume</i>
+                    </a>
+                </p>
+            </div>
 
             <div className="w-full mt-12 grid lg:grid-cols-4 grid-cols-1 gap-10">
                 {workExperience.map((card) => (
@@ -34,6 +46,8 @@ const Experience = () => {
                                 src={card.thumbnail}
                                 alt={card.thumbnail}
                                 className="lg:w-32 md:w-20 w-16"
+                                width={128}
+                                height={128}
                             />
                             <div className="lg:ms-5">
                                 <h1 className="text-start text-xl md:text-2xl font-bold">
