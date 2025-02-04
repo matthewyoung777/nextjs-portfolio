@@ -2,25 +2,14 @@ import React from "react";
 import Image from "next/image";
 import { workExperience } from "@/data";
 import { Button } from "./ui/MovingBorders";
-
+import MagicButton from "./MagicButton";
+import { FaDownload } from "react-icons/fa6";
 const Experience = () => {
     return (
         <div className="py-20 w-full">
             <h1 className="heading">
                 My <span className="text-purple">work experience</span>
             </h1>
-            <div className="text">
-                <p>
-                    <a
-                        href="/Matthew Young Resume.pdf"
-                        target="_blank"
-                        className="button"
-                        download
-                    >
-                        <i className="fa fa-download">Download Resume</i>
-                    </a>
-                </p>
-            </div>
 
             <div className="w-full mt-12 grid lg:grid-cols-4 grid-cols-1 gap-10">
                 {workExperience.map((card) => (
@@ -60,6 +49,20 @@ const Experience = () => {
                         </div>
                     </Button>
                 ))}
+            </div>
+            <div className="flex justify-center mt-10">
+                <a
+                    href="/Matthew Young Resume.pdf"
+                    target="_blank"
+                    className="button"
+                    download
+                >
+                    <MagicButton
+                        title="Download my resume"
+                        icon={<FaDownload />}
+                        position="right"
+                    />
+                </a>
             </div>
         </div>
     );
