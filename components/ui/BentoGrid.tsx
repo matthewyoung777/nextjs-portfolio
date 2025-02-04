@@ -90,7 +90,7 @@ export const BentoGridItem = ({
             <div className={`${id === 6 && "flex justify-center"} h-full`}>
                 <div className="w-full h-full absolute">
                     {img && (
-                        <Image
+                        <img
                             src={img}
                             alt={img}
                             width={500}
@@ -191,6 +191,7 @@ export const BentoGridItem = ({
                                     alt="confetti"
                                     height={200}
                                     width={400}
+                                    unoptimized
                                 />
                                 <Lottie
                                     options={defaultOptions}

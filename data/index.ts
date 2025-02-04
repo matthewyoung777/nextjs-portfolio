@@ -10,7 +10,8 @@ export const gridItems = [
         id: 1,
         title: "I prioritize client collaboration, fostering open communication ",
         description: "",
-        className: "lg:col-span-3 md:col-span-6 md:row-span-4 lg:min-h-[60vh]",
+        className:
+            "lg:col-span-3 md:col-span-6 md:row-span-4 lg:min-h-[70vh] sm:min-h-[90vh] min-h-[50vh]",
         imgClassName: "w-full h-full",
         titleClassName: "justify-end",
         img: "/profile.jpg",
@@ -195,7 +196,7 @@ export const workExperience = [
     {
         id: 4,
         title: "Autonomos Vehicle Test Specialist",
-        desc: "Expanded drivable testing zones by 50%, improved drive behavior data analysis to reduce errors by 30%, and enhanced vehicle testing efficiency, doubling driverless mileage.",
+        desc: "Expanded drivable testing zones and improved drive behavior data analysis and enhanced vehicle testing efficiency, doubling driverless mileage.",
         className: "md:col-span-2",
         thumbnail: "/exp2.svg",
     },

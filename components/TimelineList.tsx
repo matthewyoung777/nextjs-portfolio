@@ -5,7 +5,7 @@ import { Timeline } from "@/components/ui/Timeline";
 export function TimelineList() {
     const data = [
         {
-            title: "2024",
+            title: "2025",
             content: (
                 <div>
                     <p className="text-neutral-800 dark:text-neutral-200 text-xs md:text-sm font-normal mb-8">
@@ -16,7 +16,7 @@ export function TimelineList() {
             ),
         },
         {
-            title: "Early 2023",
+            subtitle: "April",
             content: (
                 <div>
                     <p className="text-neutral-800 dark:text-neutral-200 text-xs md:text-sm font-normal mb-8">
@@ -32,8 +32,9 @@ export function TimelineList() {
                 </div>
             ),
         },
+        { title: "2024" },
         {
-            title: "Changelog",
+            subtitle: "Oct ",
             content: (
                 <div>
                     <p className="text-neutral-800 dark:text-neutral-200 text-xs md:text-sm font-normal mb-4">
@@ -56,7 +57,35 @@ export function TimelineList() {
                             ✅ Salman Bhai Fan Club registrations open
                         </div>
                     </div>
-                    <div className="grid grid-cols-2 gap-4">Images Here</div>
+                    <div className="grid grid-cols-2 gap-4">
+                        <Image
+                            src="/networkylogo.png"
+                            alt="/networkylogo.png"
+                            width={100}
+                            height={300}
+                        ></Image>
+                    </div>
+                </div>
+            ),
+        },
+        { title: "2023" },
+        {
+            subtitle: "July",
+            content: (
+                <div>
+                    <h3 className="md:block text-xl md:pl-20 md:text-1xl font-bold">
+                        <ul>
+                            <li>Hack Reactor Coding Bootcamp</li>
+                            <li>JavaScript</li>
+                            <li>Python</li>
+                        </ul>
+                    </h3>
+                    <Image
+                        src="/hackreactor.png"
+                        alt="/hackreactor.png"
+                        width={200}
+                        height={200}
+                    ></Image>
                 </div>
             ),
         },
