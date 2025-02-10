@@ -40,12 +40,12 @@ const Hero = () => {
                         className="text-center text-[40px] md:text-4xl lg:text-5xl"
                     />
                     {/* <p className="uppercase tracking-widest text-xs text-center text-blue-100 max-w-80">
-                        Here's a little about me..
+                        Here&apos;s a little about me..
                     </p> */}
                     <p className="text-center md:tracking-wider mb-4 text-sm md:text-lg lg:text-2xl">
-                        Here's a little about me..
+                        Here&apos;s a little about me..
                     </p>
-                    <a href="#about">
+                    <a href="#projects">
                         <MagicButton
                             title="Show my work"
                             icon={<FaLocationArrow />}
