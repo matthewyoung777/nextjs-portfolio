@@ -75,7 +75,8 @@ export const projects = [
         id: 1,
         title: "Forge Fitness",
         des: "Gamifyng fitness to make it more fun and engaging for users to chase their fitness goals.",
-        img: "/forge-fitness.svg",
+        // img: "/forge-fitness.svg",
+        img: "/fitness.png",
         iconLists: [
             "/re.svg",
             "/mongo.svg",
