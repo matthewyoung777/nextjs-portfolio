@@ -13,7 +13,7 @@ export const gridItems = [
         className:
             "lg:col-span-3 md:col-span-6 md:row-span-4 lg:min-h-[70vh] sm:min-h-[90vh] min-h-[50vh]",
         imgClassName: "w-full h-full",
-        titleClassName: "justify-end",
+        titleClassName: "",
         img: "/profile.jpg",
         spareImg: "",
     },
@@ -100,28 +100,6 @@ export const projects = [
         ],
         link: "https://apex-legends1.gitlab.io/paper-stonks/",
     },
-    // {
-    //     id: 3,
-    //     title: "AI Image SaaS - Canva Application",
-    //     des: "A REAL Software-as-a-Service app with AI features and a payments and credits system using the latest tech stack.",
-    //     img: "/p3.svg",
-    //     iconLists: ["/re.svg", "/tail.svg", "/ts.svg", "/three.svg", "/c.svg"],
-    //     link: "/ui.aiimg.com",
-    // },
-    // {
-    //     id: 4,
-    //     title: "Animated Apple Iphone 3D Website",
-    //     des: "Recreated the Apple iPhone 15 Pro website, combining GSAP animations and Three.js 3D effects..",
-    //     img: "/p4.svg",
-    //     iconLists: [
-    //         "/next.svg",
-    //         "/tail.svg",
-    //         "/ts.svg",
-    //         "/three.svg",
-    //         "/gsap.svg",
-    //     ],
-    //     link: "/ui.apple.com",
-    // },
 ];
 
 export const testimonials = [
@@ -209,13 +187,12 @@ export const socialMedia = [
     {
         id: 1,
         img: "/git.svg",
+        url: "https://github.com/matthewyoung777",
     },
+
     {
         id: 2,
-        img: "/twit.svg",
-    },
-    {
-        id: 3,
         img: "/link.svg",
+        url: "https://www.linkedin.com/in/matthew-young-07/",
     },
 ];
