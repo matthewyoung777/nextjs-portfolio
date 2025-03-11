@@ -174,7 +174,7 @@ export const workExperience = [
     },
     {
         id: 4,
-        title: "Autonomos Vehicle Test Specialist",
+        title: "Autonomous Vehicle Test Specialist",
         desc: "Expanded drivable testing zones and improved drive behavior data analysis and enhanced vehicle testing efficiency, doubling driverless mileage.",
         className: "md:col-span-2",
         thumbnail: "/exp2.svg",
