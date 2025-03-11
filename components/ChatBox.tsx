@@ -6,13 +6,16 @@ import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Skeleton } from "@/components/ui/skeleton";
 import { TextGenerateEffect } from "@/components/ui/TextGenerateEffect";
 
+type ChatMessage = {
+    text: string;
+    sender: "user" | "bot";
+};
+
 const Chatbox = () => {
     const axios = require("axios");
     const CHATBOT_API_URL = process.env.NEXT_PUBLIC_CHATBOT_API_URL;
     const CHATBOT_API_KEY = process.env.NEXT_PUBLIC_CHATBOT_API_KEY;
-    const [messages, setMessages] = useState<
-        { text: string; sender: "user" | "bot" }[]
-    >([]);
+    const [messages, setMessages] = useState<ChatMessage[]>([]);
     const [input, setInput] = useState("");
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState<string | null>(null);
@@ -27,7 +30,10 @@ const Chatbox = () => {
     const sendMessage = async () => {
         if (!input.trim()) return;
         // Add user message to UI
-        const newMessages = [...messages, { text: input, sender: "user" }];
+        const newMessages: ChatMessage[] = [
+            ...messages,
+            { text: input, sender: "user" },
+        ];
         setMessages(newMessages);
         setLoading(true);
         setInput("");
