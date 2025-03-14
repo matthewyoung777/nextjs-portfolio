@@ -167,14 +167,14 @@ export const workExperience = [
     },
     {
         id: 3,
-        title: "Founding Engineer",
+        title: "Founding Engineer - Forge Fitness",
         desc: "Leading the development of a mobile app for fitness, from initial concept to deployment on app stores.",
         className: "md:col-span-2",
         thumbnail: "/exp3.svg",
     },
     {
         id: 4,
-        title: "Autonomous Vehicle Test Specialist",
+        title: "Autonomous Vehicle Test Specialist - Cruise",
         desc: "Expanded drivable testing zones and improved drive behavior data analysis and enhanced vehicle testing efficiency, doubling driverless mileage.",
         className: "md:col-span-2",
         thumbnail: "/exp2.svg",
