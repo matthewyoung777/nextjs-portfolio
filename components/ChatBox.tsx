@@ -22,11 +22,15 @@ const Chatbox = () => {
     const messagesEndRef = useRef<HTMLDivElement | null>(null);
 
     const messagesContainerRef = useRef<HTMLDivElement | null>(null);
+    const chatboxContainerRef = useRef<HTMLDivElement | null>(null);
     const [isAutoScroll, setIsAutoScroll] = useState(true);
 
     useEffect(() => {
         if (isAutoScroll) {
-            messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
+            messagesEndRef.current?.scrollIntoView({
+                behavior: "smooth",
+                block: "nearest",
+            });
         }
     }, [messages]);
 
@@ -38,6 +42,16 @@ const Chatbox = () => {
 
         // If the user is near the bottom, enable auto-scroll
         setIsAutoScroll(scrollTop + clientHeight >= scrollHeight - 50);
+    };
+
+    const handleSendMessageScroll = () => {
+        if (chatboxContainerRef.current) {
+            const rect = chatboxContainerRef.current.getBoundingClientRect();
+            window.scrollBy({
+                top: rect.top - 50, // Adjust the value as needed
+                behavior: "smooth",
+            });
+        }
     };
 
     const sendMessage = async () => {
@@ -89,23 +103,28 @@ const Chatbox = () => {
             console.error("Error sending message:", error);
         } finally {
             setLoading(false);
+            handleSendMessageScroll(); // Scroll the chatbox to the top of the screen
         }
     };
 
     const placeholders = [
-        "Ask: Tell me about yourself",
-        "Ask: What is Forge Fitness?",
-        "Ask: What do you like to do for fun?",
+        "What languages can you code in?",
+        "Tell me about yourself",
+        "What is Forge Fitness?",
+        "What do you like to do for fun?",
     ];
 
     return (
         <>
-            <Card className="w-full max-w-5xl mx-auto p-6 shadow-lg border-3px rounded-lg flex flex-col flex-1 overflow-hidden">
+            <Card
+                ref={chatboxContainerRef}
+                className="w-full max-w-3xl mx-auto p-6 shadow-lg border-3px rounded-lg flex flex-col flex-1 overflow-hidden transition-all duration-500 ease-in-out lg:max-h-[50%]"
+            >
                 <CardContent
                     ref={messagesContainerRef}
                     onScroll={handleScroll}
                     style={{ overflowY: "auto", maxHeight: "600px" }}
-                    className="space-y-4 p-1 border-b custom-scrollbar flex-1 rounded-lg "
+                    className="space-y-4 p-1 border-b custom-scrollbar flex-1 rounded-lg transition-all duration-500 ease-in-out "
                 >
                     <CardHeader className="top-0 z-10">
                         <h4 className="text-lg md:text-2xl text-neutral-600 dark:text-neutral-100 font-bold text-center mb-8">
@@ -113,7 +132,7 @@ const Chatbox = () => {
                             <span className="px-1 py-0.5 rounded-lg  bg-gray-100 dark:bg-neutral-800 dark:border-neutral-700 border border-gray-200">
                                 clone
                             </span>{" "}
-                            now! 🤖
+                            now!
                         </h4>
                     </CardHeader>
 
@@ -124,7 +143,7 @@ const Chatbox = () => {
                                 msg.sender === "user"
                                     ? "justify-end"
                                     : "justify-start"
-                            } items-start gap-2`} // Changed items-center to items-start
+                            } items-start gap-2 transition-all duration-500 ease-in-out`} // Changed items-center to items-start
                         >
                             {msg.sender === "bot" && (
                                 <Avatar className="mt-2">
@@ -140,7 +159,7 @@ const Chatbox = () => {
                                     msg.sender === "user"
                                         ? "text-gray-400"
                                         : "text-white-100"
-                                }`}
+                                } transition-all duration-500 ease-in-out`}
                             >
                                 {msg.sender === "bot" ? (
                                     <TextGenerateEffect
@@ -154,7 +173,7 @@ const Chatbox = () => {
                         </div>
                     ))}
                     {loading && (
-                        <div className="flex justify-start items-start gap-2">
+                        <div className="flex justify-start items-start gap-2 transition-all duration-500 ease-in-out">
                             {" "}
                             {/* Changed items-center to items-start */}
                             <Avatar>
