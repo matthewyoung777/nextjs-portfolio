@@ -4,6 +4,8 @@ import MagicButton from "./MagicButton";
 import { Spotlight } from "./ui/Spotlight";
 import { TextGenerateEffect } from "./ui/TextGenerateEffect";
 
+import Chatbox from "@/components/ChatBox";
+
 const Hero = () => {
     return (
         <div className="pb-20 pt-36">
@@ -45,6 +47,9 @@ const Hero = () => {
                     <p className="text-center md:tracking-wider mb-4 text-sm md:text-lg lg:text-2xl">
                         Here&apos;s a little about me..
                     </p>
+
+                    <Chatbox />
+
                     <a href="#projects">
                         <MagicButton
                             title="Show my work"

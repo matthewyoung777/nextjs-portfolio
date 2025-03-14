@@ -54,15 +54,24 @@ const Chatbox = () => {
 
         try {
             const response = await axios.get(CHATBOT_API_URL, {
-                method: "POST",
+                method: "GET",
                 headers: {
                     "Content-Type": "application/json",
                     "X-API-Key": CHATBOT_API_KEY,
                 },
                 // body: JSON.stringify({ message: input }),
             });
+            // const response = await axios.post(
+            //     `${CHATBOT_API_URL}/ask`,
+            //     { question: input },
+            //     {
+            //         headers: {
+            //             "Content-Type": "application/json",
+            //             "X-API-Key": CHATBOT_API_KEY,
+            //         },
+            //     }
+            // );
 
-            console.log("RESPONSE", response.data.answer);
             const answer = response.data.answer;
             if (answer) {
                 setMessages([
@@ -76,7 +85,7 @@ const Chatbox = () => {
                 setError("Eror receiving message");
             }
         } catch (error) {
-            setError("Uh oh, something went wrong");
+            setError("Uh oh, lets not spam the bot!");
             console.error("Error sending message:", error);
         } finally {
             setLoading(false);
@@ -90,88 +99,90 @@ const Chatbox = () => {
     ];
 
     return (
-        <Card className="w-full max-w-5xl mx-auto p-6 shadow-lg border-none bg-transparent h-full flex flex-col overflow-hidden">
-            <CardContent
-                ref={messagesContainerRef}
-                onScroll={handleScroll}
-                style={{ overflowY: "auto", maxHeight: "600px" }} // Ensure maxHeight is set
-                className="space-y-4 p-1 border-b custom-scrollbar flex-1"
-            >
-                <CardHeader>
-                    <h4 className="text-lg md:text-2xl text-neutral-600 dark:text-neutral-100 font-bold text-center mb-8">
-                        Chat with my{" "}
-                        <span className="px-1 py-0.5 rounded-md bg-gray-100 dark:bg-neutral-800 dark:border-neutral-700 border border-gray-200">
-                            clone
-                        </span>{" "}
-                        now! 🤖
-                    </h4>
-                </CardHeader>
+        <>
+            <Card className="w-full max-w-5xl mx-auto p-6 shadow-lg border-3px rounded-lg flex flex-col flex-1 overflow-hidden">
+                <CardContent
+                    ref={messagesContainerRef}
+                    onScroll={handleScroll}
+                    style={{ overflowY: "auto", maxHeight: "600px" }}
+                    className="space-y-4 p-1 border-b custom-scrollbar flex-1 rounded-lg "
+                >
+                    <CardHeader className="top-0 z-10">
+                        <h4 className="text-lg md:text-2xl text-neutral-600 dark:text-neutral-100 font-bold text-center mb-8">
+                            Chat with my{" "}
+                            <span className="px-1 py-0.5 rounded-lg  bg-gray-100 dark:bg-neutral-800 dark:border-neutral-700 border border-gray-200">
+                                clone
+                            </span>{" "}
+                            now! 🤖
+                        </h4>
+                    </CardHeader>
 
-                {messages.map((msg, i) => (
-                    <div
-                        key={i}
-                        className={`flex ${
-                            msg.sender === "user"
-                                ? "justify-end"
-                                : "justify-start"
-                        } items-start gap-2`} // Changed items-center to items-start
-                    >
-                        {msg.sender === "bot" && (
-                            <Avatar className="mt-2">
+                    {messages.map((msg, i) => (
+                        <div
+                            key={i}
+                            className={`flex ${
+                                msg.sender === "user"
+                                    ? "justify-end"
+                                    : "justify-start"
+                            } items-start gap-2`} // Changed items-center to items-start
+                        >
+                            {msg.sender === "bot" && (
+                                <Avatar className="mt-2">
+                                    <AvatarImage
+                                        src="/bot-avatar.jpeg"
+                                        alt="Bot Avatar"
+                                    />
+                                    <AvatarFallback>Matt</AvatarFallback>
+                                </Avatar>
+                            )}
+                            <Card
+                                className={`pl-2 mt-0 max-w-xs border-none bg-transparent break-words whitespace-pre-wrap ${
+                                    msg.sender === "user"
+                                        ? "text-gray-400"
+                                        : "text-white-100"
+                                }`}
+                            >
+                                {msg.sender === "bot" ? (
+                                    <TextGenerateEffect
+                                        words={msg.text}
+                                        textColor="white-100"
+                                    />
+                                ) : (
+                                    msg.text
+                                )}
+                            </Card>
+                        </div>
+                    ))}
+                    {loading && (
+                        <div className="flex justify-start items-start gap-2">
+                            {" "}
+                            {/* Changed items-center to items-start */}
+                            <Avatar>
                                 <AvatarImage
-                                    src="/bot-avatar.jpeg"
+                                    src="/bot-avatar.png"
                                     alt="Bot Avatar"
                                 />
-                                <AvatarFallback>Matt</AvatarFallback>
+                                <AvatarFallback>AI</AvatarFallback>
                             </Avatar>
-                        )}
-                        <Card
-                            className={`pl-2 mt-0 max-w-xs border-none bg-transparent break-words whitespace-pre-wrap ${
-                                msg.sender === "user"
-                                    ? "text-gray-400"
-                                    : "text-white-100"
-                            }`}
-                        >
-                            {msg.sender === "bot" ? (
-                                <TextGenerateEffect
-                                    words={msg.text}
-                                    textColor="white-100"
-                                />
-                            ) : (
-                                msg.text
-                            )}
-                        </Card>
-                    </div>
-                ))}
-                {loading && (
-                    <div className="flex justify-start items-start gap-2">
-                        {" "}
-                        {/* Changed items-center to items-start */}
-                        <Avatar>
-                            <AvatarImage
-                                src="/bot-avatar.png"
-                                alt="Bot Avatar"
-                            />
-                            <AvatarFallback>AI</AvatarFallback>
-                        </Avatar>
-                        <div className="flex flex-col items-start gap-2">
-                            <Skeleton className="w-[150px] h-[16px] rounded-full" />
-                            <Skeleton className="w-[100px] h-[16px] rounded-full" />
+                            <div className="flex flex-col items-start gap-2">
+                                <Skeleton className="w-[150px] h-[16px] rounded-full" />
+                                <Skeleton className="w-[100px] h-[16px] rounded-full" />
+                            </div>
                         </div>
-                    </div>
-                )}
-                {error && <div className="text-red-500">{error}</div>}
-                {/* Invisible div to trigger scroll */}
-                <div ref={messagesEndRef} />
-            </CardContent>
-            <div className="mt-4 flex gap-3 text-base">
-                <PlaceholdersAndVanishInput
-                    placeholders={placeholders}
-                    onChange={(e) => setInput(e.target.value)}
-                    onSubmit={sendMessage}
-                />
-            </div>
-        </Card>
+                    )}
+                    {error && <div className="text-red-500">{error}</div>}
+                    {/* Invisible div to trigger scroll */}
+                    <div ref={messagesEndRef} />
+                </CardContent>
+                <div className="mt-auto flex gap-3 text-base pt-3">
+                    <PlaceholdersAndVanishInput
+                        placeholders={placeholders}
+                        onChange={(e) => setInput(e.target.value)}
+                        onSubmit={sendMessage}
+                    />
+                </div>
+            </Card>
+        </>
     );
 };
 

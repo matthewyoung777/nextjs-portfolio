@@ -10,7 +10,7 @@ import Approach from "@/components/Approach";
 import Experience from "@/components/Experience";
 import RecentProjects from "@/components/RecentProjects";
 import { TimelineList } from "@/components/TimelineList";
-import { ChatModal } from "@/components/ChatModal";
+
 import { FloatingNav } from "@/components/ui/FloatingNavbar";
 
 const Home = () => {
@@ -23,7 +23,7 @@ const Home = () => {
                 <RecentProjects />
                 <Clients />
                 <Experience />
-                <ChatModal />
+
                 {/* <TimelineList /> */}
                 {/* <Approach /> */}
                 <Footer />
