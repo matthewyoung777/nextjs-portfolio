@@ -50,13 +50,13 @@ const Hero = () => {
 
                     <Chatbox />
 
-                    <a href="#projects">
+                    {/* <a href="#projects">
                         <MagicButton
                             title="Show my work"
                             icon={<FaLocationArrow />}
                             position="right"
                         />
-                    </a>
+                    </a> */}
                 </div>
             </div>
         </div>
