@@ -193,7 +193,7 @@ const Chatbox = () => {
                     {/* Invisible div to trigger scroll */}
                     <div ref={messagesEndRef} />
                 </CardContent>
-                <div className="mt-auto flex gap-3 text-base pt-3">
+                <div className="mt-auto flex gap-3 text-base pt-3 mx-auto  w-full">
                     <PlaceholdersAndVanishInput
                         placeholders={placeholders}
                         onChange={(e) => setInput(e.target.value)}
