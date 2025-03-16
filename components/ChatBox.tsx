@@ -4,6 +4,7 @@ import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Skeleton } from "@/components/ui/skeleton";
 import { TextGenerateEffect } from "@/components/ui/TextGenerateEffect";
 import { PlaceholdersAndVanishInput } from "./ui/VanishInput";
+import MagicBox from "@/components/MagicBox";
 
 type ChatMessage = {
     text: string;
@@ -48,7 +49,7 @@ const Chatbox = () => {
         if (chatboxContainerRef.current) {
             const rect = chatboxContainerRef.current.getBoundingClientRect();
             window.scrollBy({
-                top: rect.top - 50, // Adjust the value as needed
+                top: rect.top - 60, // Adjust the value as needed
                 behavior: "smooth",
             });
         }
@@ -115,10 +116,10 @@ const Chatbox = () => {
     ];
 
     return (
-        <>
+        <MagicBox>
             <Card
                 ref={chatboxContainerRef}
-                className="w-full max-w-3xl mx-auto pb-6 shadow-lg border-3px rounded-lg flex flex-col flex-1 overflow-hidden transition-all duration-500 ease-in-out lg:max-h-[50%]  bg-[#04071d]"
+                className=" max-w-3xl h-full pb-6 shadow-lg rounded-lg flex flex-col flex-1 overflow-hidden transition-all duration-500 ease-in-out bg-[#04071d]"
             >
                 <CardContent
                     ref={messagesContainerRef}
@@ -201,7 +202,7 @@ const Chatbox = () => {
                     />
                 </div>
             </Card>
-        </>
+        </MagicBox>
     );
 };
 
