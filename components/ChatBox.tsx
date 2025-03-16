@@ -118,13 +118,13 @@ const Chatbox = () => {
         <>
             <Card
                 ref={chatboxContainerRef}
-                className="w-full max-w-3xl mx-auto p-6 shadow-lg border-3px rounded-lg flex flex-col flex-1 overflow-hidden transition-all duration-500 ease-in-out lg:max-h-[50%]"
+                className="w-full max-w-3xl mx-auto pb-6 shadow-lg border-3px rounded-lg flex flex-col flex-1 overflow-hidden transition-all duration-500 ease-in-out lg:max-h-[50%]  bg-[#0a0e18]"
             >
                 <CardContent
                     ref={messagesContainerRef}
                     onScroll={handleScroll}
                     style={{ overflowY: "auto", maxHeight: "600px" }}
-                    className="space-y-4 p-1 border-b custom-scrollbar flex-1 rounded-lg transition-all duration-500 ease-in-out "
+                    className="space-y-4 p-1  custom-scrollbar flex-1 rounded-lg transition-all duration-500 ease-in-out opacity-100 "
                 >
                     <CardHeader className="top-0 z-10">
                         <h4 className="text-lg md:text-2xl text-neutral-600 dark:text-neutral-100 font-bold text-center mb-8">
@@ -143,10 +143,10 @@ const Chatbox = () => {
                                 msg.sender === "user"
                                     ? "justify-end"
                                     : "justify-start"
-                            } items-start gap-2 transition-all duration-500 ease-in-out`} // Changed items-center to items-start
+                            } items-start gap-2 transition-all duration-500 ease-in-out text-sm font-bold`} // Changed items-center to items-start
                         >
                             {msg.sender === "bot" && (
-                                <Avatar className="mt-2">
+                                <Avatar className="mt-2 ml-3">
                                     <AvatarImage
                                         src="/bot-avatar.jpeg"
                                         alt="Bot Avatar"
@@ -155,10 +155,10 @@ const Chatbox = () => {
                                 </Avatar>
                             )}
                             <Card
-                                className={`pl-2 mt-0 max-w-xs border-none bg-transparent break-words whitespace-pre-wrap ${
+                                className={`mt-0 max-w-xs border-none bg-transparent break-words whitespace-pre-wrap rounded-lg ${
                                     msg.sender === "user"
-                                        ? "text-gray-400"
-                                        : "text-white-100"
+                                        ? "bg-[#472f6d88] text-white-100 p-3"
+                                        : "bg-[#111928] text-white px-3"
                                 } transition-all duration-500 ease-in-out`}
                             >
                                 {msg.sender === "bot" ? (

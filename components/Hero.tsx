@@ -45,7 +45,7 @@ const Hero = () => {
                         Here&apos;s a little about me..
                     </p> */}
                     <p className="text-center md:tracking-wider mb-4 text-sm md:text-lg lg:text-2xl">
-                        Ask my clone 🤖 about me or scroll down to see my work
+                        Ask my clone 🤖 about me!
                     </p>
 
                     <Chatbox />
