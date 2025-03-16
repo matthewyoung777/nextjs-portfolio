@@ -129,10 +129,10 @@ const Chatbox = () => {
                     <CardHeader className="top-0 z-10">
                         <h4 className="text-lg md:text-2xl text-neutral-600 dark:text-neutral-100 font-bold text-center mb-8">
                             Chat with{" "}
-                            <span className="px-1 py-0.5 rounded-lg  bg-gray-100 dark:bg-neutral-800 dark:border-neutral-700 border border-gray-200">
+                            <span className="px-1 py-0.5 rounded-lg  text-purple border-gray-200">
                                 &quot;me&quot;
-                            </span>{" "}
-                            now!
+                            </span>
+                            here!
                         </h4>
                     </CardHeader>
 
