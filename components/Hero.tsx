@@ -1,6 +1,3 @@
-import { FaLocationArrow } from "react-icons/fa6";
-
-import MagicButton from "./MagicButton";
 import { Spotlight } from "./ui/Spotlight";
 import { TextGenerateEffect } from "./ui/TextGenerateEffect";
 
@@ -41,22 +38,12 @@ const Hero = () => {
                         Francisco"
                         className="text-center text-[40px] md:text-4xl lg:text-5xl"
                     />
-                    {/* <p className="uppercase tracking-widest text-xs text-center text-blue-100 max-w-80">
-                        Here&apos;s a little about me..
-                    </p> */}
+
                     <p className="text-center md:tracking-wider mb-4 text-sm md:text-lg lg:text-2xl">
                         Ask my clone 🤖 about me!
                     </p>
 
                     <Chatbox />
-
-                    {/* <a href="#projects">
-                        <MagicButton
-                            title="Show my work"
-                            icon={<FaLocationArrow />}
-                            position="right"
-                        />
-                    </a> */}
                 </div>
             </div>
         </div>

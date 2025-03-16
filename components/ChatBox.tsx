@@ -19,7 +19,6 @@ const Chatbox = () => {
     const [input, setInput] = useState("");
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState<string | null>(null);
-    // Ref for auto-scrolling
     const messagesEndRef = useRef<HTMLDivElement | null>(null);
 
     const messagesContainerRef = useRef<HTMLDivElement | null>(null);
@@ -41,7 +40,6 @@ const Chatbox = () => {
         const { scrollTop, scrollHeight, clientHeight } =
             messagesContainerRef.current;
 
-        // If the user is near the bottom, enable auto-scroll
         setIsAutoScroll(scrollTop + clientHeight >= scrollHeight - 50);
     };
 
@@ -49,7 +47,7 @@ const Chatbox = () => {
         if (chatboxContainerRef.current) {
             const rect = chatboxContainerRef.current.getBoundingClientRect();
             window.scrollBy({
-                top: rect.top - 60, // Adjust the value as needed
+                top: rect.top - 60,
                 behavior: "smooth",
             });
         }
@@ -104,7 +102,7 @@ const Chatbox = () => {
             console.error("Error sending message:", error);
         } finally {
             setLoading(false);
-            handleSendMessageScroll(); // Scroll the chatbox to the top of the screen
+            handleSendMessageScroll();
         }
     };
 
@@ -176,7 +174,6 @@ const Chatbox = () => {
                     {loading && (
                         <div className="flex justify-start items-start gap-2 transition-all duration-500 ease-in-out">
                             {" "}
-                            {/* Changed items-center to items-start */}
                             <Avatar>
                                 <AvatarImage
                                     src="/bot-avatar.png"
