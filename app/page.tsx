@@ -9,9 +9,7 @@ import Clients from "@/components/Clients";
 import Experience from "@/components/Experience";
 import RecentProjects from "@/components/RecentProjects";
 import { FloatingNav } from "@/components/ui/FloatingNavbar";
-import * as Sentry from "@sentry/nextjs";
 
-console.log("Sentry Replay active:", Sentry.replayIntegration ? "Yes" : "No");
 const Home = () => {
     return (
         <>
