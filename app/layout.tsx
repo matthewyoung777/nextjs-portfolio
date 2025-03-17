@@ -19,7 +19,24 @@ export default function RootLayout({
     return (
         <html lang="en" suppressHydrationWarning>
             <head>
-                <link rel="icon" href="/jsm-logo.png" sizes="any" />
+                <link
+                    rel="icon"
+                    href="/favicon_io/apple-touch-icon.png"
+                    sizes="any"
+                />
+                <link
+                    rel="icon"
+                    type="image/png"
+                    sizes="32x32"
+                    href="/favicon_io/favicon-32x32.png"
+                />
+                <link
+                    rel="icon"
+                    type="image/png"
+                    sizes="16x16"
+                    href="/favicon_io/favicon-16x16.png"
+                />
+                <link rel="manifest" href="/favicon_io/site.webmanifest" />
             </head>
             <body className={inter.className}>
                 <ThemeProvider
