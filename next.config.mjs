@@ -1,6 +1,8 @@
 import { withSentryConfig } from "@sentry/nextjs";
 /** @type {import('next').NextConfig} */
-const nextConfig = {};
+const nextConfig = {
+    output: "export",
+};
 
 export default withSentryConfig(
     withSentryConfig(
@@ -14,6 +16,9 @@ export default withSentryConfig(
                 silent: true,
                 org: "self-u74",
                 project: "nextjs-portfolio",
+                // typescript: {
+                //     ignoreBuildErrors: true,
+                // },
             },
             {
                 // For all available options, see:
