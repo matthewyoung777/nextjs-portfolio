@@ -66,24 +66,24 @@ const Chatbox = () => {
         setError(null);
 
         try {
-            const response = await axios.get(CHATBOT_API_URL, {
-                method: "GET",
-                headers: {
-                    "Content-Type": "application/json",
-                    "X-API-Key": CHATBOT_API_KEY,
-                },
-                // body: JSON.stringify({ message: input }),
-            });
-            // const response = await axios.post(
-            //     `${CHATBOT_API_URL}/ask`,
-            //     { question: input },
-            //     {
-            //         headers: {
-            //             "Content-Type": "application/json",
-            //             "X-API-Key": CHATBOT_API_KEY,
-            //         },
-            //     }
-            // );
+            // const response = await axios.get(CHATBOT_API_URL, {
+            //     method: "GET",
+            //     headers: {
+            //         "Content-Type": "application/json",
+            //         "X-API-Key": CHATBOT_API_KEY,
+            //     },
+            //     // body: JSON.stringify({ message: input }),
+            // });
+            const response = await axios.post(
+                `${CHATBOT_API_URL}/ask`,
+                { question: input },
+                {
+                    headers: {
+                        "Content-Type": "application/json",
+                        "X-API-Key": CHATBOT_API_KEY,
+                    },
+                }
+            );
 
             const answer = response.data.answer;
             if (answer) {
@@ -123,9 +123,9 @@ const Chatbox = () => {
                     ref={messagesContainerRef}
                     onScroll={handleScroll}
                     style={{ overflowY: "auto" }}
-                    className=" px-3  h-full custom-scrollbar flex-1 rounded-3xl transition-all duration-500 ease-in-out opacity-100 "
+                    className=" px-3  h-full custom-scrollbar flex-1 rounded-3xl transition-all duration-500 ease-in-out opacity-100"
                 >
-                    <CardHeader className="top-0 z-10 sticky bg-gradient-to-b from-[#04071d] to-[#04071d]/1">
+                    <CardHeader className="top-0 z-10 sticky bg-gradient-to-b from-[#04071d] to-[#04071d]/1 pb-20">
                         <h4 className="text-lg md:text-2xl text-neutral-600 dark:text-neutral-100 font-bold text-center mb-8">
                             Chat with my
                             <span className="px-1 py-0.5 rounded-lg  text-purple border-gray-200">
@@ -154,7 +154,7 @@ const Chatbox = () => {
                                 </Avatar>
                             )}
                             <Card
-                                className={`mt-0 max-w-xs border-none bg-transparent break-words whitespace-pre-wrap rounded-lg ${
+                                className={`mt-0 max-w-md border-none bg-transparent break-words whitespace-pre-wrap rounded-lg ${
                                     msg.sender === "user"
                                         ? "  bg-[#10132E] text-[#C1C2D3] p-3"
                                         : " bg-[#3e295f88]  text-[#C1C2D3] px-3"
@@ -191,7 +191,7 @@ const Chatbox = () => {
                     {/* Invisible div to trigger scroll */}
                     <div ref={messagesEndRef} />
                 </CardContent>
-                <div className="mt-0 mb-5 flex text-base pt-3 mx-auto w-full border-[#10132E] border-t-2 bordershadow-lg">
+                <div className="mt-0 pb-5 bg-transparent flex text-base pt-3 mx-auto w-full border-[#10132E] border-t-2 bordershadow-lg z-20">
                     <PlaceholdersAndVanishInput
                         placeholders={placeholders}
                         onChange={(e) => setInput(e.target.value)}
