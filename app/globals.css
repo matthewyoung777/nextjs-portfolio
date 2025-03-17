@@ -85,8 +85,8 @@
 }
 
 .custom-scrollbar {
-    scrollbar-color: #a1a1a1 transparent; /* thumb and track color */
-    border-radius: 6px;
+    scrollbar-color: #10132e transparent; /* thumb and track color */
+    border-radius: 24px;
     scrollbar-width: thin; /* Modern thin scrollbar */
     overflow-y: scroll;
 }
@@ -95,24 +95,29 @@
 .custom-scrollbar::-webkit-scrollbar {
     width: 8px;
     transition: opacity 0.3s ease;
+    opacity: 1; /* Increased opacity */
+    /* Hide the arrows */
+    display: none;
 }
 
 /* Scrollbar thumb (the draggable part) */
 .custom-scrollbar::-webkit-scrollbar-thumb {
-    background: #a1a1a1; /* Gray thumb */
-    border-radius: 6px;
+    background: #10132e; /* Gray thumb */
+    border-radius: 24px;
     transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
 /* Scrollbar track (the background) */
 .custom-scrollbar::-webkit-scrollbar-track {
     background: transparent; /* Transparent track */
-    border-radius: 6px;
+    border-radius: 24px;
 }
 
 /* Hide the scrollbar when at the bottom */
 .custom-scrollbar::-webkit-scrollbar {
-    opacity: 1;
+    opacity: 1; /* Increased opacity */
+    /* Hide the arrows */
+    display: none;
 }
 
 .custom-scrollbar::-webkit-scrollbar-thumb:hover {
@@ -121,15 +126,15 @@
 
 /* Only show the scrollbar when needed */
 .custom-scrollbar:active::-webkit-scrollbar {
-    opacity: 1;
+    opacity: 1; /* Increased opacity */
 }
 
 .custom-scrollbar:focus::-webkit-scrollbar {
-    opacity: 1;
+    opacity: 1; /* Increased opacity */
 }
 
 .custom-scrollbar::-webkit-scrollbar:horizontal {
-    height: 6px;
+    height: 24px;
 }
 
 /* Hide the scrollbar when at the bottom */

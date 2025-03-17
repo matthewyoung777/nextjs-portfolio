@@ -36,12 +36,8 @@ const Hero = () => {
                     <TextGenerateEffect
                         words="Hi! I'm Matt, a Full Stack Developer based in San
                         Francisco"
-                        className="text-center text-[40px] md:text-4xl lg:text-5xl"
+                        className="text-center text-[40px] md:text-4xl lg:text-5xl mb-10"
                     />
-
-                    <p className="text-center md:tracking-wider mb-4 text-sm md:text-lg lg:text-2xl">
-                        Ask my clone 🤖 about me!
-                    </p>
 
                     <Chatbox />
                 </div>

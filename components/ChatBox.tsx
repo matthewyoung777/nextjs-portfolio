@@ -40,7 +40,7 @@ const Chatbox = () => {
         const { scrollTop, scrollHeight, clientHeight } =
             messagesContainerRef.current;
 
-        setIsAutoScroll(scrollTop + clientHeight >= scrollHeight - 50);
+        setIsAutoScroll(scrollTop + clientHeight >= scrollHeight - 70);
     };
 
     const handleSendMessageScroll = () => {
@@ -117,19 +117,19 @@ const Chatbox = () => {
         <MagicBox>
             <Card
                 ref={chatboxContainerRef}
-                className=" max-w-3xl h-full pb-6 shadow-lg rounded-lg flex flex-col flex-1 overflow-hidden transition-all duration-500 ease-in-out bg-[#04071d]"
+                className=" max-w-3xl h-full pb-0 shadow-lg rounded-3xl flex flex-col flex-1 overflow-hidden transition-all duration-500 ease-in-out bg-[#04071d] justify-end"
             >
                 <CardContent
                     ref={messagesContainerRef}
                     onScroll={handleScroll}
-                    style={{ overflowY: "auto", maxHeight: "600px" }}
-                    className="space-y-4 px-3  custom-scrollbar flex-1 rounded-lg transition-all duration-500 ease-in-out opacity-100 "
+                    style={{ overflowY: "auto" }}
+                    className=" px-3  h-full custom-scrollbar flex-1 rounded-3xl transition-all duration-500 ease-in-out opacity-100 "
                 >
-                    <CardHeader className="top-0 z-10">
+                    <CardHeader className="top-0 z-10 sticky bg-gradient-to-b from-[#04071d] to-[#04071d]/1">
                         <h4 className="text-lg md:text-2xl text-neutral-600 dark:text-neutral-100 font-bold text-center mb-8">
-                            Chat with{" "}
+                            Chat with my
                             <span className="px-1 py-0.5 rounded-lg  text-purple border-gray-200">
-                                &quot;me&quot;
+                                AI clone
                             </span>
                             here!
                         </h4>
@@ -142,7 +142,7 @@ const Chatbox = () => {
                                 msg.sender === "user"
                                     ? "justify-end"
                                     : "justify-start"
-                            } items-start gap-2 transition-all duration-500 ease-in-out text-sm font-bold`} // Changed items-center to items-start
+                            } items-start gap-2 pb-5 transition-all duration-500 ease-in-out text-sm font-bold`} //
                         >
                             {msg.sender === "bot" && (
                                 <Avatar className="mt-2 ">
@@ -156,8 +156,8 @@ const Chatbox = () => {
                             <Card
                                 className={`mt-0 max-w-xs border-none bg-transparent break-words whitespace-pre-wrap rounded-lg ${
                                     msg.sender === "user"
-                                        ? "bg-[#472f6d88] text-[#C1C2D3] p-3"
-                                        : "bg-[#10132E] text-[#C1C2D3] px-3"
+                                        ? "  bg-[#10132E] text-[#C1C2D3] p-3"
+                                        : " bg-[#3e295f88]  text-[#C1C2D3] px-3"
                                 } transition-all duration-500 ease-in-out`}
                             >
                                 {msg.sender === "bot" ? (
@@ -191,7 +191,7 @@ const Chatbox = () => {
                     {/* Invisible div to trigger scroll */}
                     <div ref={messagesEndRef} />
                 </CardContent>
-                <div className="mt-auto flex gap-3 text-base pt-3 mx-auto  w-full">
+                <div className="mt-0 mb-5 flex text-base pt-3 mx-auto w-full border-[#10132E] border-t-2 bordershadow-lg">
                     <PlaceholdersAndVanishInput
                         placeholders={placeholders}
                         onChange={(e) => setInput(e.target.value)}
