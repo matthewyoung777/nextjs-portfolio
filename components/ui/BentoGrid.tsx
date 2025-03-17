@@ -176,12 +176,12 @@ export const BentoGridItem = ({
                                     copied ? "block" : "block"
                                 }`}
                             >
-                                <Image
+                                {/* eslint-disable-next-line @next/next/no-img-element */}
+                                <img
                                     src="/confetti.gif"
                                     alt="confetti"
                                     height={200}
                                     width={400}
-                                    unoptimized={true}
                                 />
                                 <Lottie
                                     options={defaultOptions}
