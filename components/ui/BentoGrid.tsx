@@ -181,6 +181,7 @@ export const BentoGridItem = ({
                                     alt="confetti"
                                     height={200}
                                     width={400}
+                                    unoptimized={true}
                                 />
                                 <Lottie
                                     options={defaultOptions}
