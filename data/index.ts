@@ -14,7 +14,7 @@ export const gridItems = [
             "lg:col-span-3 md:col-span-6 md:row-span-4 lg:min-h-[70vh] sm:min-h-[90vh] min-h-[50vh]",
         imgClassName: "w-full h-full",
         titleClassName: "",
-        img: "/profile.jpg",
+        img: "/profile.jpeg",
         spareImg: "",
     },
     {

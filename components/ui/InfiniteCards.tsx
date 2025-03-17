@@ -126,7 +126,7 @@ export const InfiniteMovingCards = ({
                             <div className="relative z-20 mt-6 flex flex-row items-center">
                                 {/* add this div for the profile img */}
                                 <div className="me-3">
-                                    <Image
+                                    <img
                                         width={50}
                                         height={50}
                                         src={item.img}

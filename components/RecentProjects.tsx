@@ -24,14 +24,14 @@ const RecentProjects = () => {
                                     className="relative w-full h-full overflow-hidden lg:rounded-3xl"
                                     style={{ backgroundColor: "#13162D" }}
                                 >
-                                    <Image
+                                    <img
                                         src="/bg.png"
                                         alt="bgimg"
                                         width={530}
                                         height={530}
                                     />
                                 </div>
-                                <Image
+                                <img
                                     src={item.img}
                                     alt="cover"
                                     className="z-10 absolute bottom-0"
@@ -66,7 +66,7 @@ const RecentProjects = () => {
                                                 }px)`,
                                             }}
                                         >
-                                            <Image
+                                            <img
                                                 src={icon}
                                                 alt="icon5"
                                                 className="p-2"

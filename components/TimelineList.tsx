@@ -58,12 +58,12 @@ export function TimelineList() {
                         </div>
                     </div>
                     <div className="grid grid-cols-2 gap-4">
-                        <Image
+                        <img
                             src="/networkylogo.png"
                             alt="/networkylogo.png"
                             width={100}
                             height={300}
-                        ></Image>
+                        />
                     </div>
                 </div>
             ),
@@ -80,12 +80,12 @@ export function TimelineList() {
                             <li>Python</li>
                         </ul>
                     </h3>
-                    <Image
+                    <img
                         src="/hackreactor.png"
                         alt="/hackreactor.png"
                         width={200}
                         height={200}
-                    ></Image>
+                    />
                 </div>
             ),
         },
