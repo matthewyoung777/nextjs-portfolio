@@ -14,6 +14,7 @@ Sentry.init({
             // Additional SDK configuration goes in here, for example:
             colorScheme: "dark",
         }),
+        Sentry.replayCanvasIntegration(),
     ],
 
     // Define how likely traces are sampled. Adjust this value in production, or use tracesSampler for greater control.
