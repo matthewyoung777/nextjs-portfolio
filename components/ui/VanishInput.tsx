@@ -8,10 +8,12 @@ export function PlaceholdersAndVanishInput({
     placeholders,
     onChange,
     onSubmit,
+    awake,
 }: {
     placeholders: string[];
     onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
     onSubmit: (e: React.FormEvent<HTMLFormElement>) => void;
+    awake: boolean;
 }) {
     const [currentPlaceholder, setCurrentPlaceholder] = useState(0);
 
@@ -201,6 +203,7 @@ export function PlaceholdersAndVanishInput({
                         onChange && onChange(e);
                     }
                 }}
+                disabled={!awake}
                 onKeyDown={handleKeyDown}
                 ref={inputRef}
                 value={value}
@@ -213,7 +216,7 @@ export function PlaceholdersAndVanishInput({
             />
 
             <button
-                disabled={!value}
+                disabled={!value || !awake}
                 type="submit"
                 className="absolute right-0 top-1/2 z-50 -translate-y-1/2 h-12 w-12 rounded-full disabled:bg-gray-100 bg-black dark:bg-[#3c4591] dark:disabled:bg-[#10132E] transition duration-200 flex items-center justify-center"
             >
