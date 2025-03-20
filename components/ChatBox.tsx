@@ -6,6 +6,8 @@ import { TextGenerateEffect } from "@/components/ui/TextGenerateEffect";
 import { PlaceholdersAndVanishInput } from "./ui/VanishInput";
 import MagicBox from "@/components/MagicBox";
 import Loader from "@/components/ui/loader";
+import { useToast } from "@/hooks/use-toast";
+import { ToastAction } from "@/components/ui/toast";
 
 type ChatMessage = {
     text: string;
@@ -13,6 +15,7 @@ type ChatMessage = {
 };
 
 const Chatbox = () => {
+    const { toast } = useToast();
     const axios = require("axios");
     const CHATBOT_API_URL = process.env.NEXT_PUBLIC_CHATBOT_API_URL;
     const CHATBOT_API_KEY = process.env.NEXT_PUBLIC_CHATBOT_API_KEY;
@@ -53,6 +56,19 @@ const Chatbox = () => {
             });
             console.log(response);
             if (response.status === 200) {
+                toast({
+                    title: "A.I. Matt is awake!",
+                    description: "You can now chat with A.I. Matt",
+                    variant: "custom",
+                    action: (
+                        <ToastAction
+                            altText="Chat"
+                            onClick={handleSendMessageScroll}
+                        >
+                            Chat now!
+                        </ToastAction>
+                    ),
+                });
                 setAwake(true);
             }
         };
@@ -91,24 +107,24 @@ const Chatbox = () => {
         setError(null);
 
         try {
-            const response = await axios.get(CHATBOT_API_URL, {
-                method: "GET",
-                headers: {
-                    "Content-Type": "application/json",
-                    "X-API-Key": CHATBOT_API_KEY,
-                },
-                // body: JSON.stringify({ message: input }),
-            });
-            // const response = await axios.post(
-            //     `${CHATBOT_API_URL}/ask`,
-            //     { question: input },
-            //     {
-            //         headers: {
-            //             "Content-Type": "application/json",
-            //             "X-API-Key": CHATBOT_API_KEY,
-            //         },
-            //     }
-            // );
+            // const response = await axios.get(CHATBOT_API_URL, {
+            //     method: "GET",
+            //     headers: {
+            //         "Content-Type": "application/json",
+            //         "X-API-Key": CHATBOT_API_KEY,
+            //     },
+            //     // body: JSON.stringify({ message: input }),
+            // });
+            const response = await axios.post(
+                `${CHATBOT_API_URL}/ask`,
+                { question: input },
+                {
+                    headers: {
+                        "Content-Type": "application/json",
+                        "X-API-Key": CHATBOT_API_KEY,
+                    },
+                }
+            );
 
             const answer = response.data.answer;
             if (answer) {
