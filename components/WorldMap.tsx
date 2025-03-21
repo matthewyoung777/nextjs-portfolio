@@ -13,16 +13,16 @@ export default function WorldMapGrid() {
                         }, // Alaska (Fairbanks)
                         end: {
                             lat: 30.7749,
-                            lng: -130.4194,
+                            lng: -125.0194,
                         }, // San Francisco
                     },
                     {
                         start: {
                             lat: 30.7749,
-                            lng: -130.4194,
+                            lng: -125.0194,
                         }, // San Francisco
                         end: {
-                            lat: 40.7128,
+                            lat: 32.7128,
                             lng: -74.006,
                         }, // New York
                     },
