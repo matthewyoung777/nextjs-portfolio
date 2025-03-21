@@ -8,6 +8,7 @@ import MagicBox from "@/components/MagicBox";
 import Loader from "@/components/ui/loader";
 import { useToast } from "@/hooks/use-toast";
 import { ToastAction } from "@/components/ui/toast";
+import { Button } from "@/components/ui/button";
 
 type ChatMessage = {
     text: string;
@@ -15,16 +16,17 @@ type ChatMessage = {
 };
 
 const Chatbox = () => {
+    const exampleQuestions = [
+        "What languages can you code in?",
+        "What do you like to do for fun?",
+        "Tell me about yourself",
+    ];
+
     const { toast } = useToast();
     const axios = require("axios");
     const CHATBOT_API_URL = process.env.NEXT_PUBLIC_CHATBOT_API_URL;
     const CHATBOT_API_KEY = process.env.NEXT_PUBLIC_CHATBOT_API_KEY;
-    const [messages, setMessages] = useState<ChatMessage[]>([
-        {
-            text: "Hello! Ask me anything!",
-            sender: "bot",
-        },
-    ]);
+    const [messages, setMessages] = useState<ChatMessage[]>([]);
     const [input, setInput] = useState("");
     const [awake, setAwake] = useState(false);
     const [loading, setLoading] = useState(false);
@@ -94,12 +96,13 @@ const Chatbox = () => {
         }
     };
 
-    const sendMessage = async () => {
-        if (!input.trim()) return;
+    const sendMessage = async (message?: string) => {
+        const msg = message || input;
+        if (!msg.trim()) return;
         // Add user message to UI
         const newMessages: ChatMessage[] = [
             ...messages,
-            { text: input, sender: "user" },
+            { text: msg, sender: "user" },
         ];
         setMessages(newMessages);
         setLoading(true);
@@ -107,17 +110,9 @@ const Chatbox = () => {
         setError(null);
 
         try {
-            // const response = await axios.get(CHATBOT_API_URL, {
-            //     method: "GET",
-            //     headers: {
-            //         "Content-Type": "application/json",
-            //         "X-API-Key": CHATBOT_API_KEY,
-            //     },
-            //     // body: JSON.stringify({ message: input }),
-            // });
             const response = await axios.post(
                 `${CHATBOT_API_URL}/ask`,
-                { question: input },
+                { question: msg },
                 {
                     headers: {
                         "Content-Type": "application/json",
@@ -190,6 +185,8 @@ const Chatbox = () => {
                             </h4>
                         )}
                     </CardHeader>
+
+                    {/* Initial Message */}
                     {!awake && (
                         <div
                             id="loader-container"
@@ -199,7 +196,45 @@ const Chatbox = () => {
                             <Loader />
                         </div>
                     )}
+                    {awake && (
+                        <div
+                            className={`flex "justify-start"items-start gap-2 pb-5 transition-all duration-500 ease-in-out text-sm font-bold`} //
+                        >
+                            <Avatar className="mt-2 ">
+                                <AvatarImage
+                                    src="/bot-avatar.jpeg"
+                                    alt="Bot Avatar"
+                                />
+                                <AvatarFallback>Matt</AvatarFallback>
+                            </Avatar>
 
+                            <Card
+                                className={`mt-0 max-w-md border-none bg-transparent break-words whitespace-pre-wrap rounded-lg  bg-[#3e295f88]  text-[#C1C2D3] px-3 transition-all duration-500 ease-in-out`}
+                            >
+                                <TextGenerateEffect
+                                    words={"Hello! Ask me about my background!"}
+                                    textColor="white-100"
+                                />
+                            </Card>
+                        </div>
+                    )}
+
+                    {awake && messages.length < 1 && (
+                        <div
+                            id="example-questions-container"
+                            className="flex flex-col items-end pb-5 transition-all duration-500 ease-in-out text-sm font-bold"
+                        >
+                            {exampleQuestions.map((question, index) => (
+                                <Button
+                                    key={index}
+                                    className="my-1 justify-start bg-[#10132E] hover:bg-[#3c4591] break-words justify-end font-bold border-[white]/2 text-[#C1C2D3] border-2 rounded-3xl px-0 py-2 transition-all duration-500 ease-in-out p-3"
+                                    onClick={() => sendMessage(question)}
+                                >
+                                    {question}
+                                </Button>
+                            ))}
+                        </div>
+                    )}
                     {awake &&
                         messages.map((msg, i) => (
                             <div
@@ -263,7 +298,10 @@ const Chatbox = () => {
                     <PlaceholdersAndVanishInput
                         placeholders={placeholders}
                         onChange={(e) => setInput(e.target.value)}
-                        onSubmit={sendMessage}
+                        onSubmit={(e) => {
+                            e.preventDefault();
+                            sendMessage();
+                        }}
                         awake={awake}
                     />
                 </div>

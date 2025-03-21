@@ -21,6 +21,7 @@
         "axios": "^1.8.2",
         "class-variance-authority": "^0.7.0",
         "clsx": "^2.1.1",
+        "dotted-map": "^2.2.3",
         "framer-motion": "^11.18.2",
         "ldrs": "^1.1.2",
         "lucide-react": "^0.365.0",
@@ -36,7 +37,6 @@
         "tailwind-scrollbar-hide": "^2.0.0",
         "tailwindcss-animate": "^1.0.7",
         "three": "^0.163.0",
-        "three-globe": "^2.31.0",
         "vercel": "^34.0.0"
     },
     "devDependencies": {
