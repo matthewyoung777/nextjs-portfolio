@@ -14,7 +14,45 @@ const Clients = () => {
             </h1>
 
             <div className="flex flex-col items-center max-lg:mt-10">
-                <div className="h-[50vh] md:h-[30rem] rounded-md flex flex-col antialiased  items-center justify-center relative overflow-hidden">
+                {/* Mobile: stacked cards */}
+                <div className="md:hidden flex flex-col gap-6 px-4 mt-10 w-full">
+                    {testimonials.map((item, idx) => (
+                        <div
+                            key={idx}
+                            className="rounded-2xl border border-slate-800 p-6"
+                            style={{
+                                background: "rgb(4,7,29)",
+                                backgroundColor:
+                                    "linear-gradient(90deg, rgba(4,7,29,1) 0%, rgba(12,14,35,1) 100%)",
+                            }}
+                        >
+                            <p className="text-sm leading-[1.6] text-white font-normal">
+                                {item.quote}
+                            </p>
+                            <div className="mt-6 flex flex-row items-center">
+                                <div className="me-3">
+                                    <img
+                                        width={50}
+                                        height={50}
+                                        src={item.img}
+                                        alt="profile"
+                                    />
+                                </div>
+                                <span className="flex flex-col gap-1">
+                                    <span className="text-xl font-bold leading-[1.6] text-white">
+                                        {item.name}
+                                    </span>
+                                    <span className="text-sm leading-[1.6] text-white-200 font-normal">
+                                        {item.title}
+                                    </span>
+                                </span>
+                            </div>
+                        </div>
+                    ))}
+                </div>
+
+                {/* Desktop: infinite scrolling carousel */}
+                <div className="hidden md:flex h-[30rem] rounded-md flex-col antialiased items-center justify-center relative overflow-hidden">
                     <InfiniteMovingCards
                         items={testimonials}
                         direction="right"
