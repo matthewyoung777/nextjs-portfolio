@@ -50,7 +50,7 @@ export const gridItems = [
 
     {
         id: 5,
-        title: "Currently building a mobile Fitness Companion",
+        title: "Currently building a mobile app for group drink ordering",
         description: "The Inside Scoop",
         className: "md:col-span-3 md:row-span-2",
         imgClassName: "absolute right-0 bottom-0 md:w-96 w-60",
@@ -73,10 +73,20 @@ export const gridItems = [
 export const projects = [
     {
         id: 1,
+        title: "Tea Run",
+        des: "A full-stack mobile app for coordinating team tea orders with real-time updates, magic link auth, and a Supabase backend.",
+        img: "/tea-run.png",
+        imgClassName: "object-cover w-full h-full inset-0",
+        iconLists: ["/supabase.svg", "/re.svg", "/ts.svg", "/expo.svg"],
+        link: "https://tea-run.com",
+    },
+    {
+        id: 3,
         title: "Forge Fitness",
         des: "Gamifyng fitness to make it more fun and engaging for users to chase their fitness goals.",
         // img: "/forge-fitness.svg",
         img: "/fitness.png",
+        imgClassName: "top-1/2 -translate-y-1/2",
         iconLists: [
             "/re.svg",
             "/mongo.svg",
@@ -87,10 +97,11 @@ export const projects = [
         link: "https://mailchi.mp/6190a8efe0c0/forge-fitness-signup-form",
     },
     {
-        id: 2,
+        id: 4,
         title: "Paper Stonks - Practice investing risk-free",
         des: "A simulated investment platform to refine trading strategies without real-world risks.",
         img: "/paperstonks.svg",
+        imgClassName: "top-1/2 -translate-y-1/2",
         iconLists: [
             "/fastapi.svg",
             "/docker.svg",
@@ -153,27 +164,34 @@ export const companies = [
 export const workExperience = [
     {
         id: 1,
+        title: "Test Engineer - Quanta Manufacturing",
+        desc: "Defined and implemented test processes for production hardware including servers, switches, storage, and fully configured racks. Developed automated test scripts and led root cause investigations with R&D and Manufacturing teams.",
+        className: "md:col-span-2",
+        thumbnail: "/exp2.svg",
+    },
+    {
+        id: 2,
         title: "AI Engineer Intern - MiniMe AI",
         desc: "Assisted in the development a RAG pipeline to enhance LLM retrieval and response accuracy.",
         className: "md:col-span-2",
         thumbnail: "/exp1.svg",
     },
     {
-        id: 2,
+        id: 3,
         title: "Full Stack Software Engineer Intern - Networky.ai",
         desc: "Designed and developed mobile app for both iOS & Android platforms using React Native.",
         className: "md:col-span-2",
         thumbnail: "/exp4.svg",
     },
     {
-        id: 3,
+        id: 4,
         title: "Founding Engineer - Forge Fitness",
         desc: "Leading the development of a mobile app for fitness, from initial concept to deployment on app stores.",
         className: "md:col-span-2",
         thumbnail: "/exp3.svg",
     },
     {
-        id: 4,
+        id: 5,
         title: "Autonomous Vehicle Test Specialist - Cruise",
         desc: "Expanded drivable testing zones and improved drive behavior data analysis and enhanced vehicle testing efficiency, doubling driverless mileage.",
         className: "md:col-span-2",

@@ -34,7 +34,7 @@ const RecentProjects = () => {
                                 <img
                                     src={item.img}
                                     alt="cover"
-                                    className="z-10 absolute bottom-0"
+                                    className={`z-10 absolute ${item.imgClassName || "bottom-0"}`}
                                     width={530}
                                     height={530}
                                 />

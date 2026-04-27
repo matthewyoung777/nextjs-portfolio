@@ -1,0 +1,8 @@
+{
+  "permissions": {
+    "allow": [
+      "WebFetch(domain:cdn.simpleicons.org)",
+      "WebFetch(domain:tea-run.com)"
+    ]
+  }
+}
